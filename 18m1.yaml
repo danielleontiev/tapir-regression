@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: title
+  version: '1.0'
+paths:
+  /sample:
+    post:
+      operationId: postSample
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Req'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+        default:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    Req:
+      required:
+      - notOpt
+      type: object
+      properties:
+        opt:
+          required:
+          - a
+          type: object
+          properties:
+            a:
+              type: string
+        notOpt:
+          $ref: '#/components/schemas/B'
+    A:
+      required:
+      - a
+      type: object
+      properties:
+        a:
+          type: string
+    B:
+      required:
+      - b
+      type: object
+      properties:
+        b:
+          type: string
+
