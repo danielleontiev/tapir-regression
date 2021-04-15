@@ -4,8 +4,8 @@ version := "0.1"
 
 scalaVersion := "2.13.5"
 
-lazy val tapir = "0.17.19"
-//lazy val tapir = "0.18.0-M1"
+//lazy val tapir = "0.17.19"
+lazy val tapir = "0.18.0-M5"
 
 libraryDependencies ++= Seq(
   "com.softwaremill.sttp.tapir" %% "tapir-core"               % tapir,

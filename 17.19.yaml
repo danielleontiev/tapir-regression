@@ -29,7 +29,7 @@ components:
   schemas:
     Req:
       required:
-      - notOpt
+        - notOpt
       type: object
       properties:
         opt:
@@ -38,16 +38,19 @@ components:
           $ref: '#/components/schemas/B'
     A:
       required:
-      - a
+        - a
       type: object
       properties:
         a:
           type: string
+          description: a-field description
+      description: opt-field description
     B:
       required:
-      - b
+        - b
       type: object
       properties:
         b:
           type: string
-
+          description: b-field description
+      description: notOpt-field description
