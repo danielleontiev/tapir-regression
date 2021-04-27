@@ -7,22 +7,18 @@ import sttp.tapir.openapi.circe.yaml._
 
 object Main extends App {
 
-  case class Req(
-      @description("opt-field description") opt: Option[A],
-      @description("notOpt-field description") notOpt: B
+  case class Request(
+      @description("time from") from: TimeRange,
+      @description("time to") to: TimeRange,
+      @description("simple field description") simpleField: String
   )
 
-  case class A(
-      @description("a-field description") a: String
-  )
-  case class B(
-      @description("b-field description") b: String
-  )
+  case class TimeRange(timestamp: Int, misc: String)
 
   val sample =
     endpoint.post
       .in("sample")
-      .in(jsonBody[Req])
+      .in(jsonBody[Request])
       .out(stringBody)
       .errorOut(stringBody)
 
